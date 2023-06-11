@@ -13,7 +13,7 @@
 
 void main() 
 {
-	int *file;
+	int* file;
 	create_bus(&file);
 	select_registers(&file);
 	read_data(&file);
