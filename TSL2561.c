@@ -11,6 +11,10 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+void create_bus(int*);
+void select_registers(int*);
+void read_data(int*);
+
 void main() 
 {
 	int file;
