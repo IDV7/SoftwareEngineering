@@ -24,7 +24,7 @@ int main(void) {
 			{
 				i += 1;
 			}
-			if (i == 3 || i == 6 || i == 9 || i == 12 || i == 15)
+			if (i == 3 || i == 6 || i == 11 || i == 14 || i == 17)
 			{
 				i += 1;
 			}
@@ -36,9 +36,9 @@ int main(void) {
 		}
 	}
 
-	if (line[20] == "T")
+	if (line[22] == "T")
 	{
-		if (isdigit(line[33]))
+		if (isdigit(line[35]))
 		{
 			printf("Log file oke.");
 		}
@@ -53,4 +53,6 @@ int main(void) {
 		printf("Fault in log file.");
 		break;
 	}
+
+	fclose();
 }
