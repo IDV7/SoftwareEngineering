@@ -3,10 +3,13 @@
 #include <unistd.h> // For sleep function
 
 int main() {
-   time_t startTime = time(NULL);  // Get the starting time
+   
+} 
+void check_time(){
+    time_t startTime = time(NULL);  // Get the starting time
     time_t currentTime;
 
-    while (1) {
+    
         currentTime = time(NULL);  // Get the current time
 
         // Check if a minute has passed since the last execution of the task
@@ -14,8 +17,9 @@ int main() {
             write_log();               // Call the task function
             startTime = currentTime;  // Update the starting time
         }
-        }
-} 
+        
+        
+}
 void write_log(){
 FILE* logFile;
 
