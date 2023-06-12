@@ -2,23 +2,22 @@
 #include <time.h>
 #include <unistd.h> // For sleep function
 
-int main() {
-   
-} 
+
 void check_time(){
     time_t startTime = time(NULL);  // Get the starting time
     time_t currentTime;
 
-    
+    while(1){
         currentTime = time(NULL);  // Get the current time
 
         // Check if a minute has passed since the last execution of the task
         if (currentTime - startTime >= 60) {
             write_log();               // Call the task function
             startTime = currentTime;  // Update the starting time
+            return;
         }
         
-        
+    }    
 }
 void write_log(){
 FILE* logFile;
