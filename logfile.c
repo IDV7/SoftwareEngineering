@@ -3,7 +3,21 @@
 #include <unistd.h> // For sleep function
 
 int main() {
-    FILE* logFile;
+   time_t startTime = time(NULL);  // Get the starting time
+    time_t currentTime;
+
+    while (1) {
+        currentTime = time(NULL);  // Get the current time
+
+        // Check if a minute has passed since the last execution of the task
+        if (currentTime - startTime >= 60) {
+            write_log();               // Call the task function
+            startTime = currentTime;  // Update the starting time
+        }
+        }
+} 
+void write_log(){
+FILE* logFile;
 
     logFile = fopen("logfile.txt", "a");
     if (logFile == NULL) {
@@ -11,10 +25,9 @@ int main() {
         return 1;
     }
 
-    while (1) {
         // Get current time
-        time_t now = time(NULL);
-        struct tm* TMINFO = localtime(&now);
+        time_t NOW = time(NULL);
+        struct tm* TMINFO = localtime(&NOW);
         char TIME[20];
         strftime(TIME, sizeof(TIME), "%d-%m-%Y %H:%M:%S", TMINFO);
 
@@ -23,15 +36,13 @@ int main() {
         int LIGHT = 500;
 
         // Write to the logfile
-        fprintf(logFile, "[%s] Temperature: %.2f°C, Light Intensity: %d\n", TIME, TEMP, LIGHT);
+        fprintf(logFile, "[%s] Temperature: %.2fï¿½C, Light Intensity: %d\n", TIME, TEMP, LIGHT);
 
         // Flush the buffer to ensure immediate write
         fflush(logFile);
 
-        // Sleep for 1 minute
-        sleep(60);
-    }
+       
 
     fclose(logFile);
-    return 0;
-}
+    return ;
+    }
