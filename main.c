@@ -3,6 +3,7 @@
 #include <time.h>
 #include "temp.c"
 #include "logfile.c"
+#include "leds.c"
 
 void loop(void);
 void check_time(int);
@@ -11,10 +12,10 @@ const int LIGHT = 150;
 
 int main()
 {
+    setup_pins();
     check_time(1);
     while (1)
     {
-
         loop();
         check_time(0);
     }
@@ -22,7 +23,7 @@ int main()
 
 void loop()
 {
-    printf("Temp: %.6f\n", get_temp());
+    led_indicator(map_to_8(get_temp()));
 }
 
 void check_time(int setup)
@@ -35,11 +36,11 @@ void check_time(int setup)
 
     current_time = time(NULL); // Get the current time
 
-    if (current_time - start_time >= 10)
+    if (current_time - start_time >= 60)
     {
-        printf("new log available\n");
         write_log(get_temp(), LIGHT); // Call the task function
         start_time = current_time;    // Update the starting time
+
         return;
     }
 }
