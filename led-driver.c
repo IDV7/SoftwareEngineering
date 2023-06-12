@@ -15,11 +15,12 @@ void unexport(void);
 
 int main()
 {
-    unexport();
+    
     exportpins();
     setoutput();
     LED1H();
-    
+    sleep(20);
+    unexport();
     return 0;
 }   
  
@@ -113,7 +114,7 @@ void exportpins(void){
     }
     
     void unexport(void) {
-        for (int i = 0; i <= 24; ++i) {
+        for (int i = 0; i <= 24; i++) {
             char gpioNumber[3];
             sprintf(gpioNumber, "%d", i);
 
