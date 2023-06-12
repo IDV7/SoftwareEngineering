@@ -22,7 +22,7 @@ int main()
 
 void loop()
 {
-    // printf("Temp: %.6f\n", get_temp());
+    printf("Temp: %.6f\n", get_temp());
 }
 
 void check_time(int setup)
