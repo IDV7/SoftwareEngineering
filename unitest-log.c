@@ -24,19 +24,19 @@ int main(void) {
 			{
 				i += 1;
 			}
+			else
+			{
+				printf("Fault in log file.\n");
+				exit(1);
+			}
 			if (i == 3 || i == 6 || i == 11 || i == 14 || i == 17)
 			{
 				i += 1;
 			}
-			else
-			{
-				printf("Fault in log file.");
-				break;
-			}
 		}
 	}
 
-	if (line[22] == "T")
+	if (line[22] == 'T')
 	{
 		if (isdigit(line[35]))
 		{
@@ -45,14 +45,14 @@ int main(void) {
 		else
 		{
 			printf("Fault in log file.");
-			break;
+			exit(1);
 		}
 	}
 	else
 	{
 		printf("Fault in log file.");
-		break;
+		exit(1);
 	}
 
-	fclose();
+	fclose(log_file);
 }
