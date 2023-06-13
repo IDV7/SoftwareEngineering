@@ -24,6 +24,7 @@ int main()
 void loop()
 {
     led_indicator(map_to_8(get_temp()));
+    return;
 }
 
 void check_time(int setup)
@@ -36,11 +37,12 @@ void check_time(int setup)
 
     current_time = time(NULL); // Get the current time
 
-    if (current_time - start_time >= 60)
+    if (current_time - start_time >= 10)
     {
+        printf("Temp: %.6f\n", get_temp());
         write_log(get_temp(), LIGHT); // Call the task function
         start_time = current_time;    // Update the starting time
-
-        return;
     }
+
+    return;
 }

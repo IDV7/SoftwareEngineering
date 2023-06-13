@@ -27,7 +27,7 @@ int map_to_8(int temperature)
     int temperature_int = (int)temperature; // Convert temperature to integer
 
     // Map the temperature to a value between 0 and 8
-    int mapped_val = (temperature_int - 25) * 8 / 20;
+    int mapped_val = (temperature_int - 20) * 8 / 15;
     // printf("temp int: %d, mapped val: %d", temperature_int, mapped_val);
 
     // Ensure the mapped value is within the range of 0 to 8

@@ -1,0 +1,9 @@
+[Unit]
+Description=TempDriver Daemon
+
+[Service]
+ExecStart=/bin/bash -c "sudo ./usr/local/main/tempDriver d"
+Restart=always
+
+[Install]
+WantedBy=default.target
